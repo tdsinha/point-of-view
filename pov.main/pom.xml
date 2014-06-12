@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>pov.framworks</groupId>
+  <artifactId>pov.main</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>pov.main</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+ 	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://localhost:8081//artifactory/libs-release-local</url>
+		</repository>
+	
+		<snapshotRepository>
+			<id>deploy-mvn</id>
+		 	<url>http://localhost:8081//artifactory/libs-snapshot-local</url> 
+		</snapshotRepository>
+	</distributionManagement>
+
+
+  <dependencies>
+  	<dependency>
+  		<groupId>com.google.inject</groupId>
+  		<artifactId>guice</artifactId>
+  		<version>3.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.google.guava</groupId>
+  		<artifactId>guava</artifactId>
+  		<version>17.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.testng</groupId>
+  		<artifactId>testng</artifactId>
+  		<version>6.8</version>
+  	</dependency>
+  </dependencies>
+  <modules>
+  	<module>pov.cache</module>
+  </modules>
+</project>
+
+
