@@ -69,6 +69,7 @@
   </dependencies>
   <modules>
   	<module>pov.cache</module>
+  	<module>pov.file</module>
   </modules>
 </project>
 
