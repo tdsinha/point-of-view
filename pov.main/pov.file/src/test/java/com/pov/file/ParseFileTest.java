@@ -47,7 +47,7 @@ public class ParseFileTest {
 
         URL url = Thread.currentThread().getContextClassLoader().getResource(errorFile);
         List<Map<String, String>> output = file.tokenizeFileMap(url.getPath(), keySeries);
-        Set dupSet = new HashSet();
+        Set<String> dupSet = new HashSet<String>();
 
         for (Map<String, String> m : output) {
 
