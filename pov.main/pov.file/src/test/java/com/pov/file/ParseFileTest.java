@@ -27,6 +27,7 @@ public class ParseFileTest {
     final String BANK_ID = "BankAccountId";
     final String DELETED = "deleted";
     final String[] keySeries = new String[] { USERID, BANK_ID, DELETED };
+    final boolean debugPrint = false;
 
     @BeforeClass
     public void setup() {
@@ -38,8 +39,6 @@ public class ParseFileTest {
     public void testFileDirectory() {
         URL inputFile = Thread.currentThread().getContextClassLoader().getResource(errorFile);
         String x = file.fileDirectory(inputFile.getPath());
-        System.out.println(inputFile.getPath());
-        System.out.println(x);
         assertThat(x).endsWith("test-classes");
     }
 
@@ -56,7 +55,6 @@ public class ParseFileTest {
             if (dupSet.contains(id)) {
                 assertThat(true).isFalse();
             } else {
-                System.out.println(id);
                 dupSet.add(id);
             }
         }
@@ -78,7 +76,6 @@ public class ParseFileTest {
             }
             temp = m;
         }
-        System.out.println("filePath :" + outputFilePath);
         file.writeTokenizedFileMap(outputList, keySeries, outputFilePath, " , ", "\n");
 
     }
@@ -86,7 +83,6 @@ public class ParseFileTest {
     @Test
     public void testTokenizeFileMap() {
 
-        final boolean debugPrint = true;
         URL url = Thread.currentThread().getContextClassLoader().getResource(errorFile);
         List<Map<String, String>> output = file.tokenizeFileMap(url.getPath(), keySeries);
         assertThat(output).hasSize(1489);
@@ -108,9 +104,7 @@ public class ParseFileTest {
     @Test
     public void testTokenizeFile() throws Exception {
 
-        final boolean debugPrint = false;
         URL url = Thread.currentThread().getContextClassLoader().getResource(errorFile);
-        System.out.println(url.getPath());
         List<String[]> l = file.tokenizeFile(url.getPath());
 
         if (debugPrint) {
